@@ -16,11 +16,13 @@ public class Settings : MonoBehaviour
         {
             SettingsMenu.SetActive(false);
             opened = false;
+            Player._pause = false;
         }
         else
         {
             SettingsMenu.SetActive(true);
             opened = true;
+            Player._pause = true;
         }
     }
 }

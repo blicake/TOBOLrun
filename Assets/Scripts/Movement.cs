@@ -8,14 +8,30 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     private Animator animator;
     private Rigidbody rigidbody;
+    private bool stopped;
     private void Start()
     {
+        stopped = false;
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
     }
     void Update()
     {
-        if(transform.position.y < 0.15f) transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
+        if (Player._pause)
+        {
+            rigidbody.isKinematic = true;
+            animator.enabled = false;
+            stopped = true;
+        }
+        if (stopped && !Player._pause)
+        {
+            rigidbody.isKinematic = false;
+            animator.enabled = true;
+            stopped = false;
+        }
+        if (transform.position.x < -1.4f) transform.position = new Vector3(-1.4f, transform.position.y, transform.position.z);
+        if (transform.position.x > 1.4f) transform.position = new Vector3(1.4f, transform.position.y, transform.position.z);
+        if (transform.position.y < 0.15f) transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
         rigidbody.velocity = new Vector3(0f, 0f, speed);
         animator.SetFloat("Direction", joystick.Horizontal);
         if (Input.GetKeyDown(KeyCode.Space))

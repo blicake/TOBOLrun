@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Sounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] AudioListener sounds;
 
-    // Update is called once per frame
-    void Update()
+    public static bool state;
+
+    public void ChangeSoundsState()
     {
-        
+        if (state)
+        {
+            state = false;
+            sounds.enabled = false;
+        }
+        else
+        {
+            state = true;
+            sounds.enabled = true;
+        }
     }
 }

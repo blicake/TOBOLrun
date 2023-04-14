@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 90c90eda27eb41548b31e1da3c9a948c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - LoseMenu: {fileID: 215097580721013421, guid: b64dd815dcfe0c646987f8d21d017f0a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
