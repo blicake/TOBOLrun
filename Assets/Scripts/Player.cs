@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public static bool _shield;
     public static bool _finish;
     public static bool _death;
-    public static bool _win;
 
     private float _gameTime;
     private float _time;
@@ -30,7 +29,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _death = false;
-        _win = false;
         _pause = false;
         _time = 30f;
         _gameTime = 0f;
@@ -47,19 +45,12 @@ public class Player : MonoBehaviour
         if (_gameTime > _time) _finish = true;
         if (_shield) StartCoroutine("ShieldEnable");
         if (_death) Death();
-        if (_win) Win();
     }
     private void Death()
     {
         _pause = true;
         WinMenu.SetActive(true);
         LoseMenuText.SetActive(true);
-    }
-    private void Win()
-    {
-        _pause = true;
-        WinMenu.SetActive(true);
-        GameObject.FindGameObjectWithTag("win").SetActive(true);
         SettingsContainer myCoins = new();
         myCoins.currentCoins += _coins;
         myCoins.soundSwitch = Sounds.state;
