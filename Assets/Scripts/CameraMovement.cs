@@ -17,7 +17,7 @@ public class CameraMovement : MonoBehaviour
     {
         transform.position = new Vector3(
                                             transform.position.x + (player.transform.position.x - transform.position.x),
-                                            player.transform.position.y + offset.y,
+                                            0.15f + offset.y,
                                             player.transform.position.z + offset.z
                                          );
     }

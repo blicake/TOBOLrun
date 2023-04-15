@@ -7,32 +7,33 @@ public class Movement : MonoBehaviour
     [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private float speed;
     private Animator animator;
-    private Rigidbody rigidbody;
+    public Rigidbody rb;
     private bool stopped;
     private void Start()
     {
+        rb.isKinematic = false;
         stopped = false;
         animator = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
+        if (!Player._pause) transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed*0.04f);
         if (Player._pause)
         {
-            rigidbody.isKinematic = true;
+            rb.isKinematic = true;
             animator.enabled = false;
             stopped = true;
         }
         if (stopped && !Player._pause)
         {
-            rigidbody.isKinematic = false;
+            rb.isKinematic = false;
             animator.enabled = true;
             stopped = false;
         }
         if (transform.position.x < -1.4f) transform.position = new Vector3(-1.4f, transform.position.y, transform.position.z);
         if (transform.position.x > 1.4f) transform.position = new Vector3(1.4f, transform.position.y, transform.position.z);
         if (transform.position.y < 0.15f) transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
-        rigidbody.velocity = new Vector3(0f, 0f, speed);
         animator.SetFloat("Direction", joystick.Horizontal);
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -46,16 +47,16 @@ public class Movement : MonoBehaviour
         float time = 0f;
         while(time < 0.35f)
         {
-            rigidbody.velocity = new Vector3(0f, speed*3, 0f);
+            rb.velocity = new Vector3(0f, speed*3, 0f);
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
         }
         while (time < 0.7f)
         {
-            rigidbody.velocity = new Vector3(0f, - speed*3, 0f);
+            rb.velocity = new Vector3(0f, - speed*3, 0f);
             yield return new WaitForSeconds(Time.deltaTime);
             time += Time.deltaTime;
         }
-        rigidbody.velocity = new Vector3(0f, 0f, 0f);
+        rb.velocity = new Vector3(0f, 0f, 0f);
     }
 }

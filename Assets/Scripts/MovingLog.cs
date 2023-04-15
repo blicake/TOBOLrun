@@ -7,10 +7,10 @@ public class MovingLog : MonoBehaviour
     public float speed;
     private void Update()
     {
-        if (!Player._pause)
+        if (!Player._pause && CompareTag("moving"))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
-            transform.Rotate(0, 1, 0);
+            transform.Rotate(0, 0, 1);
         }
     }
     private void OnTriggerEnter(Collider other)
