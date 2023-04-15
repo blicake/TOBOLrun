@@ -12,7 +12,8 @@ public class CollectCoin : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Player._coins++;
+            if (!(tag == "big")) Player._coins++;
+            else Player._coins += 10;
             Coins.update = true;
             Destroy(gameObject);
         }

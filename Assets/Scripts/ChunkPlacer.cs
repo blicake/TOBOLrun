@@ -38,7 +38,7 @@ public class ChunkPlacer : MonoBehaviour
 
     private void SpawnChunk()
     {
-        newChunk = Instantiate(ChunkPrefubs[Random.Range(0, ChunkPrefubs.Length - 1)]);
+        newChunk = Instantiate(ChunkPrefubs[Random.Range(0, ChunkPrefubs.Length)]);
         newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].End.position - newChunk.Begin.localPosition;
         spawnedChunks.Add(newChunk);
     }

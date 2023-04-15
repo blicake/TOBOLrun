@@ -1847,6 +1847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Road (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6605778574856376016, guid: 5cdac0158bd354546a0570382426543b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6605778574856376031, guid: 5cdac0158bd354546a0570382426543b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2181,6 +2185,7 @@ MonoBehaviour:
   - {fileID: 8559740167719278936, guid: 6aa3f98da24f66a4b86196fb794dfb06, type: 3}
   - {fileID: 6789854953819067767, guid: 8de383af3d88f8d4c8370ad83d40eb1b, type: 3}
   - {fileID: 5161494915295954991, guid: 99319ca6c26d87d4895eaaab70488857, type: 3}
+  - {fileID: 6930594383019940098, guid: 6205c7a452880014288781998c9d3789, type: 3}
   FirstChunks:
   - {fileID: 113579721}
   - {fileID: 1327136798}
