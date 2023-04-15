@@ -9,8 +9,10 @@ public class Movement : MonoBehaviour
     private Animator animator;
     public Rigidbody rb;
     private bool stopped;
+    private bool jumped;
     private void Start()
     {
+        jumped = false;
         rb.isKinematic = false;
         stopped = false;
         animator = GetComponent<Animator>();
@@ -18,7 +20,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (!Player._pause) transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed*0.04f);
+        if (!Player._pause) rb.velocity = new Vector3(0, 0, speed);
         if (Player._pause)
         {
             rb.isKinematic = true;
@@ -35,8 +37,9 @@ public class Movement : MonoBehaviour
         if (transform.position.x > 1.4f) transform.position = new Vector3(1.4f, transform.position.y, transform.position.z);
         if (transform.position.y < 0.15f) transform.position = new Vector3(transform.position.x, 0.15f, transform.position.z);
         animator.SetFloat("Direction", joystick.Horizontal);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !jumped)
         {
+            jumped = true;
             animator.SetTrigger("Jump");
             StartCoroutine("Jumping");
         }
@@ -44,19 +47,17 @@ public class Movement : MonoBehaviour
 
     IEnumerator Jumping()
     {
-        float time = 0f;
-        while(time < 0.35f)
+        while(transform.position.y < 1.2f)
         {
-            rb.velocity = new Vector3(0f, speed*3, 0f);
+            rb.velocity = new Vector3(0f, 5f, speed*1.2f);
             yield return new WaitForSeconds(Time.deltaTime);
-            time += Time.deltaTime;
         }
-        while (time < 0.7f)
+        while (transform.position.y > 0.15f)
         {
-            rb.velocity = new Vector3(0f, - speed*3, 0f);
+            rb.velocity = new Vector3(0f, - 4f, speed*1.2f);
             yield return new WaitForSeconds(Time.deltaTime);
-            time += Time.deltaTime;
         }
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.velocity = new Vector3(0f, 0f, speed);
+        jumped = false;
     }
 }

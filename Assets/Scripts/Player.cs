@@ -7,27 +7,31 @@ public class Player : MonoBehaviour
 {
     [SerializeField] GameObject Shield;
     [SerializeField] GameObject WinMenu;
-    [SerializeField] GameObject WinMenuText;
-    [SerializeField] GameObject LoseMenuText;
 
     public static bool _pause;
     public static int _coins;
+    public static int _score;
+    public static int _highscore;
     public static bool _shield;
     public static bool _finish;
     public static bool _death;
 
     private float _gameTime;
     private float _time;
+    private float startingPos;
 
     [Serializable]
     public class SettingsContainer
     {
         public int currentCoins;
+        public int highscore;
         public bool soundSwitch;
     }
 
     private void Start()
     {
+        startingPos = transform.position.z;
+        _score = 0;
         _death = false;
         _pause = false;
         _time = 30f;
@@ -36,11 +40,13 @@ public class Player : MonoBehaviour
         string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
         SettingsContainer myCoins = JsonUtility.FromJson<SettingsContainer>(jsonContainer);
         _coins = myCoins.currentCoins;
+        _highscore = myCoins.highscore;
         Sounds.state = myCoins.soundSwitch;
     }
 
     private void Update()
     {
+        _score = (int)(transform.position.z - startingPos);
         if(!_pause) _gameTime += Time.deltaTime;
         if (_gameTime > _time) _finish = true;
         if (_shield) StartCoroutine("ShieldEnable");
@@ -48,11 +54,12 @@ public class Player : MonoBehaviour
     }
     private void Death()
     {
+        if (_score > _highscore) _highscore = _score;
         _pause = true;
         WinMenu.SetActive(true);
-        LoseMenuText.SetActive(true);
         SettingsContainer myCoins = new();
         myCoins.currentCoins += _coins;
+        myCoins.highscore = _highscore;
         myCoins.soundSwitch = Sounds.state;
         string jsonContainer = JsonUtility.ToJson(myCoins);
         File.WriteAllText("Assets/jsonContainer.json", jsonContainer);
