@@ -13,12 +13,12 @@ public class Sounds : MonoBehaviour
         if (state == 1)
         {
             state = 0;
-            sounds.enabled = false;
+            sounds.enabled = true;
         }
         else
         {
             state = 1;
-            sounds.enabled = true;
+            sounds.enabled = false;
         }
     }
 }
