@@ -771,6 +771,7 @@ Transform:
   - {fileID: 8646446470407194669}
   - {fileID: 8911251325206409078}
   - {fileID: 2253981785493684589}
+  - {fileID: 4247178066257655120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1233,6 +1234,84 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &4430337585447129787
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6930594383019940099}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.20371647
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.20371647
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.20371647
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.322912
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1500001
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.537746
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6868502
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.68685013
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.16803831
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.16803826
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -27.495
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1e913ce7db25d6644a70fd1ae6ae7fbe, type: 2}
+    - target: {fileID: 919132149155446097, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+      propertyPath: m_Name
+      value: SM_WoodenHouse_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+--- !u!4 &4247178066257655120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: afce343cc92054e4593c4e194561dce2, type: 3}
+  m_PrefabInstance: {fileID: 4430337585447129787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8198719262104606293
 PrefabInstance:
   m_ObjectHideFlags: 0

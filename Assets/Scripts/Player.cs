@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
@@ -15,18 +14,12 @@ public class Player : MonoBehaviour
     public static bool _shield;
     public static bool _finish;
     public static bool _death;
+    public static bool _speedBonus;
 
     private float _gameTime;
     private float _time;
     private float startingPos;
-
-    [Serializable]
-    public class SettingsContainer
-    {
-        public int currentCoins;
-        public int highscore;
-        public bool soundSwitch;
-    }
+    
 
     private void Start()
     {
@@ -38,9 +31,10 @@ public class Player : MonoBehaviour
         _gameTime = 0f;
         _shield = false;
         string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-        SettingsContainer myCoins = JsonUtility.FromJson<SettingsContainer>(jsonContainer);
+        ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
         _coins = myCoins.currentCoins;
         _highscore = myCoins.highscore;
+        _speedBonus = myCoins.speedApplied;
         Sounds.state = myCoins.soundSwitch;
     }
 
@@ -57,10 +51,11 @@ public class Player : MonoBehaviour
         if (_score > _highscore) _highscore = _score;
         _pause = true;
         WinMenu.SetActive(true);
-        SettingsContainer myCoins = new();
+        ContainerClass.SettingsContainer myCoins = new();
         myCoins.currentCoins += _coins;
         myCoins.highscore = _highscore;
         myCoins.soundSwitch = Sounds.state;
+        myCoins.speedApplied = false;
         string jsonContainer = JsonUtility.ToJson(myCoins);
         File.WriteAllText("Assets/jsonContainer.json", jsonContainer);
     }

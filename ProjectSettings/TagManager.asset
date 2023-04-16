@@ -8,6 +8,9 @@ TagManager:
   - lose
   - moving
   - big
+  - score
+  - speed
+  - horse
   layers:
   - Default
   - TransparentFX

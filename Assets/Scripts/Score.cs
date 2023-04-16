@@ -9,8 +9,6 @@ public class Score : MonoBehaviour
         score = GetComponent<TMP_Text>();
         score.text = "0";
     }
-
-    // Update is called once per frame
     void Update()
     {
         score.text = Player._score.ToString();
