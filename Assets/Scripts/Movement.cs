@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float horizontalMoveSpeed;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip startSound;
     private Animator animator;
     public Rigidbody rb;
     private bool stopped;
@@ -16,6 +17,7 @@ public class Movement : MonoBehaviour
     private CapsuleCollider _collider;
     private void Start()
     {
+        audioSource.PlayOneShot(startSound);
         _collider = GetComponent<CapsuleCollider>();
         StartCoroutine("IncreaseSpeed");
         jumped = false;
@@ -26,7 +28,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (!Player._pause && !Player._speedBonus)
+        if (!Player._pause && Player._speedBonus == 0)
         {
             if (transform.position.x < -1.2f)
             {
@@ -44,7 +46,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (Player._speedBonus)
+        if (Player._speedBonus == 1)
         {
             if(transform.position.z < 100)
             {
@@ -54,7 +56,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                Player._speedBonus = false;
+                Player._speedBonus = 0;
                 _collider.enabled = true;
             }
         }

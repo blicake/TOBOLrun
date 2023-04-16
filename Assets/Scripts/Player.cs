@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public static bool _shield;
     public static bool _finish;
     public static bool _death;
-    public static bool _speedBonus;
+    public static int _speedBonus;
 
     private float _gameTime;
     private float _time;
@@ -30,12 +30,10 @@ public class Player : MonoBehaviour
         _time = 30f;
         _gameTime = 0f;
         _shield = false;
-        string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-        ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
-        _coins = myCoins.currentCoins;
-        _highscore = myCoins.highscore;
-        _speedBonus = myCoins.speedApplied;
-        Sounds.state = myCoins.soundSwitch;
+        _coins = PlayerPrefs.GetInt("coins");
+        _highscore = PlayerPrefs.GetInt("highscore");
+        _speedBonus = PlayerPrefs.GetInt("speedApplied");
+        Sounds.state = PlayerPrefs.GetInt("sounds");
     }
 
     private void Update()
@@ -51,13 +49,11 @@ public class Player : MonoBehaviour
         if (_score > _highscore) _highscore = _score;
         _pause = true;
         WinMenu.SetActive(true);
-        ContainerClass.SettingsContainer myCoins = new();
-        myCoins.currentCoins += _coins;
-        myCoins.highscore = _highscore;
-        myCoins.soundSwitch = Sounds.state;
-        myCoins.speedApplied = false;
-        string jsonContainer = JsonUtility.ToJson(myCoins);
-        File.WriteAllText("Assets/jsonContainer.json", jsonContainer);
+        PlayerPrefs.SetInt("coins", _coins);
+        PlayerPrefs.SetInt("highscore", _highscore);
+        PlayerPrefs.SetInt("sounds", Sounds.state);
+        PlayerPrefs.SetInt("speedApplied", 0);
+        PlayerPrefs.Save();
     }
     IEnumerator ShieldEnable()
     {

@@ -7,15 +7,13 @@ public class ApplySpeedBonus : MonoBehaviour
     [SerializeField] TMP_Text count;
     public void Apply()
     {
-        string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-        ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
-        int countBonus = myCoins.bonusSpeed - 1;
-        if (myCoins.bonusSpeed > countBonus)
+        PlayerPrefs.GetInt("bonusSpeed");
+        int countBonus = PlayerPrefs.GetInt("bonusSpeed") - 1;
+        if (PlayerPrefs.GetInt("bonusSpeed") > countBonus)
         {
-            myCoins.speedApplied = true;
+            PlayerPrefs.SetInt("speedApplied", 1);
             count.text = countBonus.ToString();
-            jsonContainer = JsonUtility.ToJson(myCoins);
-            File.WriteAllText("Assets/jsonContainer.json", jsonContainer);
         }
+        PlayerPrefs.Save();
     }
 }

@@ -6,18 +6,18 @@ public class Sounds : MonoBehaviour
 {
     [SerializeField] AudioListener sounds;
 
-    public static bool state;
+    public static int state;
 
     public void ChangeSoundsState()
     {
-        if (state)
+        if (state == 1)
         {
-            state = false;
+            state = 0;
             sounds.enabled = false;
         }
         else
         {
-            state = true;
+            state = 1;
             sounds.enabled = true;
         }
     }

@@ -9,31 +9,30 @@ public class BuyBonus : MonoBehaviour
     public int horseCost;
     public void BuySpeed()
     {
-        string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-        ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
-        if(myCoins.currentCoins >= speedCost)
+        int bonus = PlayerPrefs.GetInt("bonusSpeed");
+        int coins = PlayerPrefs.GetInt("coins");
+        if (coins >= speedCost)
         {
-            myCoins.bonusSpeed++;
-            myCoins.currentCoins -= speedCost;
+            PlayerPrefs.SetInt("bonusSpeed", bonus + 1);
+            coins -= speedCost;
+            PlayerPrefs.SetInt("coins", coins);
             BonusCount.update = true;
             MainMenuData.update = true;
-            jsonContainer = JsonUtility.ToJson(myCoins);
-            File.WriteAllText("Assets/jsonContainer.json", jsonContainer);
         }
+        PlayerPrefs.Save();
     }
     public void BuyHorse()
     {
-        string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-        ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
-        if (myCoins.currentCoins >= speedCost)
+        int bonus = PlayerPrefs.GetInt("bonusHorse");
+        int coins = PlayerPrefs.GetInt("coins");
+        if (coins >= speedCost)
         {
-            myCoins.bonusHorse++;
-            myCoins.currentCoins -= horseCost;
+            PlayerPrefs.SetInt("bonusHorse", bonus + 1);
+            coins -= speedCost;
+            PlayerPrefs.SetInt("coins", coins);
             BonusCount.update = true;
             MainMenuData.update = true;
-            jsonContainer = JsonUtility.ToJson(myCoins);
-            File.WriteAllText("Assets/jsonContainer.json", jsonContainer);
         }
-        
+        PlayerPrefs.Save();
     }
 }

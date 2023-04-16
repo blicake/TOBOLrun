@@ -15,10 +15,9 @@ public class MainMenuData : MonoBehaviour
     {
         if (update)
         {
-            string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-            ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
-            if (tag == "score") text.text = myCoins.highscore.ToString();
-            else text.text = myCoins.currentCoins.ToString();
+            Debug.Log(PlayerPrefs.GetInt("coins"));
+            if (tag == "score") text.text = PlayerPrefs.GetInt("highscore").ToString();
+            else text.text = PlayerPrefs.GetInt("coins").ToString();
             update = false;
         }
     }

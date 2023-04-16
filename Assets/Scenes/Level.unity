@@ -1812,6 +1812,7 @@ MonoBehaviour:
   horizontalMoveSpeed: 5
   audioSource: {fileID: 1315582059}
   jumpSound: {fileID: 8300000, guid: 95c819a218166ad40a90498c6c062964, type: 3}
+  startSound: {fileID: 8300000, guid: 563b1fb97f7c50a45a8f32b298a8967c, type: 3}
   rb: {fileID: 1315582060}
 --- !u!4 &1315582064 stripped
 Transform:

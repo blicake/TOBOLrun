@@ -13,15 +13,13 @@ public class BonusCount : MonoBehaviour
     }
     void Update()
     {
-        string jsonContainer = File.ReadAllText("Assets/jsonContainer.json");
-        ContainerClass.SettingsContainer myCoins = JsonUtility.FromJson<ContainerClass.SettingsContainer>(jsonContainer);
         if(tag == "speed")
         {
-            bonusCount.text = myCoins.bonusSpeed.ToString();
+            bonusCount.text = PlayerPrefs.GetInt("bonusSpeed").ToString();
         }
         if (tag == "horse")
         {
-            bonusCount.text = myCoins.bonusHorse.ToString();
+            bonusCount.text = PlayerPrefs.GetInt("bonusHorse").ToString();
         }
         update = false;
     }
