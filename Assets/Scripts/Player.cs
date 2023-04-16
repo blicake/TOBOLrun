@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         _highscore = PlayerPrefs.GetInt("highscore");
         _speedBonus = PlayerPrefs.GetInt("speedApplied");
         Sounds.state = PlayerPrefs.GetInt("sounds");
+        Debug.Log(_speedBonus);
     }
 
     private void Update()

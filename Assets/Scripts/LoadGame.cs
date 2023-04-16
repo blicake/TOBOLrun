@@ -14,7 +14,7 @@ public class LoadGame : MonoBehaviour
 
     IEnumerator Load()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         yield return new WaitWhile(() => video.isPlaying);
         SceneManager.LoadScene(2);
     }
