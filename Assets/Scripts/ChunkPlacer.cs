@@ -23,10 +23,10 @@ public class ChunkPlacer : MonoBehaviour
     {
         if (!Player._pause)
         { 
-            if (PlayerTransform.position.z > (spawnedChunks[spawnedChunks.Count - 1].End.position.z - 20))
+            if (PlayerTransform.position.z > (spawnedChunks[spawnedChunks.Count - 1].End.position.z - 50))
             {
                 SpawnChunk();
-                if (spawnedChunks.Count > 3)
+                if (spawnedChunks.Count > 5)
                 {
                     var temp = spawnedChunks[0].gameObject;
                     spawnedChunks.Remove(spawnedChunks[0]);
