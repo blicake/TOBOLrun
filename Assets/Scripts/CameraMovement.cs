@@ -10,6 +10,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
+        if(PlayerPrefs.GetInt("sounds") == 0) GetComponent<AudioListener>().enabled = false;
+        else GetComponent<AudioListener>().enabled = true;
         offset = transform.position - player.transform.position;
     }
 

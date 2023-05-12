@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 128258713}
   - component: {fileID: 128258712}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 303821914}
   - component: {fileID: 303821917}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: speedB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,8 +709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9c68377a2ff3f43b72c2826b17c039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedCost: 10
-  horseCost: 100
+  speedCost: 100
+  horseCost: 1000
 --- !u!1 &309056438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 619180725}
   - component: {fileID: 619180724}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ch3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,7 +1604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1011338030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 1022199420}
   - component: {fileID: 1022199423}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: horseB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,7 +2049,7 @@ GameObject:
   - component: {fileID: 1165409451}
   - component: {fileID: 1165409450}
   m_Layer: 5
-  m_Name: Button
+  m_Name: exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3344,7 +3344,7 @@ GameObject:
   - component: {fileID: 1745419876}
   - component: {fileID: 1745419875}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ch4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3465,7 +3465,7 @@ GameObject:
   - component: {fileID: 1782608378}
   - component: {fileID: 1782608377}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: ch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
