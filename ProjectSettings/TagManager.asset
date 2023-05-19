@@ -11,6 +11,9 @@ TagManager:
   - score
   - speed
   - horse
+  - money
+  - jump
+  - slide
   layers:
   - Default
   - TransparentFX

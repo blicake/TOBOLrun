@@ -32,13 +32,11 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.x < -1.2f)
             {
-                Debug.Log(joystick.Horizontal);
                 if (joystick.Horizontal > 0) rb.velocity = new Vector3(joystick.Horizontal * horizontalMoveSpeed, 0, speed);
                 else rb.velocity = new Vector3(0, 0, speed);
             }
             else if(transform.position.x > 1.2f)
             {
-                Debug.Log(joystick.Horizontal);
                 if (joystick.Horizontal < 0) rb.velocity = new Vector3(joystick.Horizontal * horizontalMoveSpeed, 0, speed);
                 else rb.velocity = new Vector3(0, 0, speed);
             }
